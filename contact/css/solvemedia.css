@@ -1,0 +1,46 @@
+/* SOLVEMEDIA STYLING */
+.adcopy-error {
+   font-size: 1.8em;
+   padding-bottom: 8px;
+}
+/* END SOLVEMEDIA STYLING */
+
+
+/* ADMINISTRATION SETTINGS SOLVEMEDIA */
+.lang-select label, .theme-select label {
+   vertical-align: middle !important;
+}
+
+.lang-select select, .theme-select select {
+   vertical-align: middle !important;
+}
+
+.adcopy-form {
+   margin: auto !important;
+   width: 25em !important;
+}
+
+.adcopy-options td {
+   vertical-align: top !important;
+}
+
+.which-key label {
+   font-weight: bold;
+}
+
+.copyright {
+   text-align: center;
+   font-size: .85em;
+}
+
+#adcopy-outer table{
+   margin : 0px;
+   border : 0px;
+   text-align : left;
+}
+
+#adcopy-outer input{
+   margin : 0px;
+   line-height : normal;
+}
+/* END ADMINISTRATION SETTINGS SOLVEMEDIA */
