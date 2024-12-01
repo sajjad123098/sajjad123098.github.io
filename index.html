@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Engineering Services</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 10vh;
+            background-color: #333;
+            color: white;
+            padding: 0 10%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+        }
+
+        .nav-links li {
+            list-style: none;
+            justify-content: space-evenly;
+            margin: 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .nav-links a:after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover:after{
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #00b0aa;
+        }
+
+        /* Hamburger Menu */
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .toggle .line2 {
+            opacity: 0;
+        }
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+
+        .line1,
+        .line2,
+        .line3 {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px;
+        }
+        /* CSS Animation */
+        .nav-active {
+            transform: translateX(0%);
+        }
+
+
+        /* Media Query */
+        @media screen and (max-width: 1024px) {
+            .nav-links {
+                width: 60%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .nav-links {
+                position: fixed;
+                right: 0px;
+                height: 92vh;
+                top: 8vh;
+                background-color: #333;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+
+            .nav-links li {
+                opacity: 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .nav-active {
+                transform: translateX(0%);
+            }
+
+            .nav-links li {
+                opacity: 1;
+            }
+
+            .nav-links a {
+                color: white;
+                font-size: 1rem;
+            }
+        }
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+           
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 90vh;
+            padding: 0 10%;
+        }
+
+        .left-half {
+            width: 50%;
+        }
+
+        .left-half h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .left-half p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .left-half button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00b0aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .left-half button:hover{
+            background-color: #000000;
+            color: white;
+        }
+
+        .right-half {
+            width: 50%;
+        }
+
+        .right-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media screen and (max-width: 768px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 90vh;
+                padding: 0 10%;
+            }
+
+            .left-half {
+                width: 100%;
+            }
+
+            .right-half {
+                width: 100%;
+            }
+            
+        }
+
+        /* Slider Section */
+        .slider {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 90vh;
+            padding: 0 10%;
+        }
+
+        .slides {
+            width: 30%;
+        }
+
+        .slides h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .slides p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .slides button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00b0aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .slides button:hover{
+            background-color: #000000;
+            color: white;
+        }
+        @media screen and (max-width: 768px) {
+            .slider {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 90vh;
+                padding: 0 10%;
+            }
+
+            .slides {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+        }
+
+
+
+
+        
+        /* Footer Styling */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10vh;
+            background-color: #333;
+            color: white;
+            padding: 0 10%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Use different tags to make a beautiful dark header with hamberger menu and amazing Animations -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h4>AA Engineering Services</h4>
+            </div>
+            
+            <div class="MobileMenu">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            
+        </nav>
+    </header>
+
+    <!-- Now create a beautiful hero section with some images and text that describe the Solar Panels Services provided the the AA Engineering Services and also add some buttons to navigate the slider -->
+
+     <div class="hero">
+        <div class="left-half">
+            <!-- Please describe our Services like solar panels -->
+            <h1>AA Engineering Services</h1>
+            <p>Providing the best Solar Panels Services in the town</p>
+            <button>Learn More</button>
+        </div>
+        <div class="right-half">
+            <!-- Add some images of Solar Panels -->
+            <img src="https://images.unsplash.com/photo-1581093452202-3b1b0b2f3f6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+
+        </div>
+
+     </div>
+
+    <!-- Now create a service section that describe and advertise the solar panels services -->
+    <div class="slider">
+        <div class="slides">
+            <h1>Our Services</h1>
+            <p>Providing the best Solar Panels Services in the town</p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Our Services</h1>
+            <p>Providing the best Solar Panels Services in the town</p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Our Services</h1>
+            <p>Providing the best Solar Panels Services in the town</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    
+
+    <footer>
+        <p>© 2021 AA Engineering Services. All Rights Reserved</p>
+    </footer>
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+        }
+
+        navSlide();
+
+
+
+    </script>
+
+</body>
+
+</html>
